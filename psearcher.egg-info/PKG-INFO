@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: psearcher
+Version: 0.1
+Summary: psearcher is a web search interface for python3.
+Home-page: https://github.com/iridesc/psearcher
+Author: Irid Zhang
+Author-email: irid.zzy@gmail.com
+License: UNKNOWN
+Description: # psearcher
+        psearcher is a web search interface for python3.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
