@@ -2,6 +2,7 @@ import requests, time
 import random
 from retry import retry
 from bs4 import BeautifulSoup
+from loger import setting, makelog
 
 class BaseEngine(object):
     name = 'BaseEngine'
@@ -21,16 +22,15 @@ class BaseEngine(object):
     }
 
     def parser(self, soup):
-        print('You must rewrite your parser!')
+        makelog('You must rewrite your parser!',1)
         return None
 
     def getUrlParmas(self):
-        print('You must rewrite your getUrlParmas!')
+        makelog('You must rewrite your getUrlParmas!',1)
         return None
   
 
     def AddResult(self, url, params):
-        print(random.random()*2)
         @retry(tries=3, delay=random.random()*2)
         def getPageResults():
             def net():
@@ -41,20 +41,20 @@ class BaseEngine(object):
             try:
                 r = net()
             except:
-                print('Error！Connection error!')
+                makelog('Connection error!',2)
 
             soup = BeautifulSoup(r.text, 'html.parser')
             pageResults = self.parser(soup)
             if len(pageResults) == 0:
-                print('Error！ When parser PageResult count is 0!')
-                print(r.url)
+                makelog('PageResult count is 0!',2)
+                makelog(r.url)
                 with open('error.html', 'w') as f:
                     f.write(r.text)
                 raise
             else:
                 return pageResults
 
-        print('{} {} {} {}'.format(
+        makelog('{} {} {} {}'.format(
                                 self.name,
                                 self.keyWord,
                                 self.nextPage,
@@ -63,9 +63,9 @@ class BaseEngine(object):
         try:
             pageResults = getPageResults()
             self.results.extend(pageResults)
-            print('Scuess! When get page results!')
+            makelog('Got page results!',4)
         except:
-            print('Error! When get page results!')
+            makelog("Can't get page !",1)
 
 
     def Search(self):
@@ -76,7 +76,7 @@ class BaseEngine(object):
             
             # Timeout  
             if time.time() - startTime > self.timeout:
-                print('Error! Timeout!')
+                makelog('Search Timeout!',1)
                 break
                 
 
