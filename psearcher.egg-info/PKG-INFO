@@ -1,32 +1,13 @@
-Metadata-Version: 2.1
+Metadata-Version: 1.1
 Name: psearcher
-Version: 0.2
+Version: 0.5.1
 Summary: psearcher is a web search interface for python3.
 Home-page: https://github.com/iridesc/psearcher
 Author: Irid Zhang
 Author-email: irid.zzy@gmail.com
 License: UNKNOWN
-Description: # psearcher
-        
-        pseacher 是一个为python3打造的网页搜索借口。
-        psearcher is a web search interface for python3.
-        目前支持 Baidu Bing
-        now support Baidu Bing 
-        
-        ```
-        from psearcher import Baidu
-        from psearcher import Bing
-        
-        engine = Baidu(keyWord='蝙蝠侠', amount=20)
-        engine = Bing(keyWord='蝙蝠侠 黑暗骑士',amount=20)
-        result = engine.Search()
-        print(result)
-        ```
-        
-        19.12.25 使用loger控制输出 
-        19.12.25 use loger control output
+Description: UNKNOWN
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
-Description-Content-Type: text/markdown
